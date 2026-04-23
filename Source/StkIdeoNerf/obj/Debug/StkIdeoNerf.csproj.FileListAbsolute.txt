@@ -1,7 +1,0 @@
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\xstk_ideo_nerf\Assemblies\StkIdeoNerf.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\xstk_ideo_nerf\Source\StkIdeoNerf\obj\Debug\StkIdeoNerf.csproj.AssemblyReference.cache
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\xstk_ideo_nerf\Source\StkIdeoNerf\obj\Debug\StkIdeoNerf.GeneratedMSBuildEditorConfig.editorconfig
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\xstk_ideo_nerf\Source\StkIdeoNerf\obj\Debug\StkIdeoNerf.AssemblyInfoInputs.cache
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\xstk_ideo_nerf\Source\StkIdeoNerf\obj\Debug\StkIdeoNerf.AssemblyInfo.cs
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\xstk_ideo_nerf\Source\StkIdeoNerf\obj\Debug\StkIdeoNerf.csproj.CoreCompileInputs.cache
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\xstk_ideo_nerf\Source\StkIdeoNerf\obj\Debug\StkIdeoNerf.dll
