@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Category: Humantech -->
+
+  <MemeGroupDef>
+    <defName>StkHumantech</defName>
+    <drawOffset>(0.37, 0.23)</drawOffset>
+    <maxRows>1</maxRows>
+    <renderOrder>2000</renderOrder>
+  </MemeGroupDef>
+
+</Defs>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--In wiki order-->
+<Patch>
+  <!--Bad roleplay-->
+    <!--Drug use-->
+    <!--Body modification-->
+    <!--Mining-->
+    <!--Subset: Vegan roleplay-->
+      <!--Killing innocent animals-->
+      <!--Slaughtering animals-->
+      <!--Meat eating-->
+      <!--Cutting trees-->
+      <!--Trees-->
+
+  <!--Already balanced-->
+    <!--Apostasy-->
+    <!--Charity-->
+    <!--Combat in darkness-->
+    <!--Lighting-->
+    <!--Raiding-->
+    <!--Every non-mentioned post-biotech precept-->
+
+  <!--Autonomous weapons-->
+    <!--THE STUPIDEST difficulty slider-->
+    <!--TODO: At least imrpove battle power for pawns-->
+
+  <!--Void study-->
+    <!--Similar to the research difficulty slider. Locking best behind a meme-->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Anomaly</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/PreceptDef[defName="VoidStudy_VeryEfficient"]/requiredMemes</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/PreceptDef[defName="VoidStudy_VeryEfficient"]</xpath>
+            <value>
+              <requiredMemes />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/PreceptDef[defName="VoidStudy_VeryEfficient"]/requiredMemes</xpath>
+          <value>
+            <li>Ritualist</li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>

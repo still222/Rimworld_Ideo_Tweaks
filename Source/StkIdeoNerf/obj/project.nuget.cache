@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "lz/cPjy7ZaU=",
+  "success": true,
+  "projectFilePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\xstk_ideo_nerf\\Source\\StkIdeoNerf\\StkIdeoNerf.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Still\\.nuget\\packages\\krafs.rimworld.ref\\1.6.4633\\krafs.rimworld.ref.1.6.4633.nupkg.sha512",
+    "C:\\Users\\Still\\.nuget\\packages\\lib.harmony\\2.4.2\\lib.harmony.2.4.2.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!--I think medical and production specialists are way to hard to get-->
+  <!--As medic and production are way too OP we should add aditional slot for specialist, but it requires harmony patch-->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PreceptDef[defName="IdeoRole_MedicalSpecialist"]/requiredMemes</xpath>
+    <value>
+      <li>HumanPrimacy</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PreceptDef[defName="IdeoRole_ProductionSpecialist"]/requiredMemes</xpath>
+    <value>
+      <li>Transhumanist</li>
+    </value>
+  </Operation>
+
+
+  <!--Human Primacy with that change is way to OP, Transhuman at least have a lot of downsides-->
+  <!--Disallow HP with some other memes-->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/MemeDef[defName="Cannibal"]/exclusionTags</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/MemeDef[defName="Cannibal"]</xpath>
+      <value>
+        <exclusionTags />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/MemeDef[defName="HumanPrimacy" or defName="Cannibal"]/exclusionTags</xpath>
+    <value>
+      <li>StkCannibalPrimacy</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Anomaly</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/MemeDef[defName="Inhuman"]/exclusionTags</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/MemeDef[defName="Inhuman"]</xpath>
+            <value>
+              <exclusionTags />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/MemeDef[defName="HumanPrimacy" or defName="Inhuman"]/exclusionTags</xpath>
+          <value>
+            <li>StkInhumanPrimacy</li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Biotech</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/MemeDef[defName="Bloodfeeding"]/exclusionTags</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/MemeDef[defName="Bloodfeeding"]</xpath>
+            <value>
+              <exclusionTags />
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/MemeDef[defName="HumanPrimacy" or defName="Bloodfeeding"]/exclusionTags</xpath>
+          <value>
+            <li>StkBloodfeederPrimacy</li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/MemeDef[defName="PainIsVirtue"]/exclusionTags</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/MemeDef[defName="PainIsVirtue"]</xpath>
+      <value>
+        <exclusionTags />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/MemeDef[defName="HumanPrimacy" or defName="PainIsVirtue"]/exclusionTags</xpath>
+    <value>
+      <li>StkPainPrimacy</li>
+    </value>
+  </Operation>
+  <!--As HP is anti-greenpeace antipode of Nature Primacy, we should also disallow some non-humane precepts-->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/MemeDef[defName="HumanPrimacy"]/requireOne</xpath>
+    <value>
+      <li>
+        <li>Cannibalism_Abhorrent</li>
+        <li>Cannibalism_Horrible</li>
+        <li>Cannibalism_Disapproved</li>
+      </li>
+      <li>
+        <li>OrganUse_Abhorrent</li>
+        <li>OrganUse_HorribleNoSell</li>
+        <li>OrganUse_HorribleSellOK</li>
+      </li>
+    </value>
+  </Operation>
+  <!--Defluff, HP is nerfed enough so we should enable some weird shit back, why not-->
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/PreceptDef[issue="AnimalSlaughter"]/conflictingMemes/li[text()="HumanPrimacy"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/PreceptDef[issue="KillingInnocentAnimals"]/conflictingMemes/li[text()="HumanPrimacy"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/PreceptDef[issue="Mining"]/conflictingMemes/li[text()="HumanPrimacy"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>/Defs/PreceptDef[issue="TreeCutting"]/conflictingMemes/li[text()="HumanPrimacy"]</xpath>
+  </Operation>
+
+
+  <!--Changing impact to really show gameplay effects, and some grouping-->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/MemeDef[defName="Transhumanist" or defName="FleshPurity"]/impact</xpath>
+    <value>
+      <impact>3</impact>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/MemeDef[defName="Transhumanist" or defName="FleshPurity"]/groupDef</xpath>
+    <value>
+      <groupDef>StkHumantech</groupDef>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/MemeDef[defName="MaleSupremacy" or defName="FemaleSupremacy"]/impact</xpath>
+    <value>
+      <impact>1</impact>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/MemeDef[defName="Tunneler"]/impact</xpath>
+    <value>
+      <impact>2</impact>
+    </value>
+  </Operation>
+
+
+  <!--Nature Primacy-->
+    <!--Giving something useful to Nature Primacy, and ensuring it's not free-->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/MemeDef[defName="NaturePrimacy"]/requireOne</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/MemeDef[defName="NaturePrimacy"]</xpath>
+      <value>
+        <requireOne />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/MemeDef[defName="NaturePrimacy"]/requireOne</xpath>
+    <value>
+      <li>
+        <li>RoughLiving_Welcomed</li>
+      </li>
+      <li>
+        <li>Temperature_Tough</li>
+      </li>
+      <li>
+        <li>Trees_Desired</li>
+      </li>
+      <li>
+        <li>TreeCutting_Prohibited</li>
+        <li>TreeCutting_Horrible</li>
+        <li>TreeCutting_Disapproved</li>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PreceptDef[defName="RoughLiving_Welcomed" or defName="Temperature_Tough"]/requiredMemes</xpath>
+    <value>
+      <li>NaturePrimacy</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PreceptDef[defName="RoughLiving_Welcomed" or defName="Temperature_Tough"]/associatedMemes</xpath>
+    <value>
+      <li>NaturePrimacy</li>
+    </value>
+  </Operation>
+
+</Patch>
