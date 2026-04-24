@@ -199,4 +199,20 @@
     </value>
   </Operation>
 
+  <!--Genders Supremacy-->
+    <!--Logic behind that is inside dll, lowering expectations of oppressed gender by 1-->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/MemeDef[defName="MaleSupremacy"]/description</xpath>
+    <value>
+      <description>It is believed that men are the rightful rulers, while females are expected to serve in humility, with reduced expectations.</description>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/MemeDef[defName="FemaleSupremacy"]/description</xpath>
+    <value>
+      <description>It is believed that women are the rightful rulers, while males are expected to serve in humility, with reduced expectations.</description>
+    </value>
+  </Operation>
+
 </Patch>

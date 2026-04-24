@@ -187,23 +187,6 @@
   <!--Spouses-->
     <!--Adding something to the supremacy memes-->
   <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/MemeDef[defName="MaleSupremacy"]/requireOne</xpath>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs/MemeDef[defName="MaleSupremacy"]</xpath>
-      <value>
-        <requireOne />
-      </value>
-    </nomatch>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/MemeDef[defName="MaleSupremacy"]/requireOne</xpath>
-    <value>
-      <li>
-        <li>SpouseCount_Female_MaxOne</li>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationConditional">
     <xpath>/Defs/PreceptDef[defName="SpouseCount_Male_Unlimited"]/requiredMemes</xpath>
     <nomatch Class="PatchOperationAdd">
       <xpath>/Defs/PreceptDef[defName="SpouseCount_Male_Unlimited"]</xpath>
@@ -219,23 +202,6 @@
     </value>
   </Operation>
 
-  <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/MemeDef[defName="FemaleSupremacy"]/requireOne</xpath>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs/MemeDef[defName="FemaleSupremacy"]</xpath>
-      <value>
-        <requireOne />
-      </value>
-    </nomatch>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/MemeDef[defName="FemaleSupremacy"]/requireOne</xpath>
-    <value>
-      <li>
-        <li>SpouseCount_Male_MaxOne</li>
-      </li>
-    </value>
-  </Operation>
   <Operation Class="PatchOperationConditional">
     <xpath>/Defs/PreceptDef[defName="SpouseCount_Female_Unlimited"]/requiredMemes</xpath>
     <nomatch Class="PatchOperationAdd">
