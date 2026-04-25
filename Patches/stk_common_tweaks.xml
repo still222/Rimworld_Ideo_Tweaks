@@ -33,6 +33,23 @@
       <li>StkCannibalPrimacy</li>
     </value>
   </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/MemeDef[defName="PainIsVirtue"]/exclusionTags</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/MemeDef[defName="PainIsVirtue"]</xpath>
+      <value>
+        <exclusionTags />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/MemeDef[defName="HumanPrimacy" or defName="PainIsVirtue"]/exclusionTags</xpath>
+    <value>
+      <li>StkPainPrimacy</li>
+    </value>
+  </Operation>
+
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Anomaly</li>
@@ -57,6 +74,7 @@
       </operations>
     </match>
   </Operation>
+
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Biotech</li>
@@ -81,21 +99,7 @@
       </operations>
     </match>
   </Operation>
-  <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/MemeDef[defName="PainIsVirtue"]/exclusionTags</xpath>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs/MemeDef[defName="PainIsVirtue"]</xpath>
-      <value>
-        <exclusionTags />
-      </value>
-    </nomatch>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/MemeDef[defName="HumanPrimacy" or defName="PainIsVirtue"]/exclusionTags</xpath>
-    <value>
-      <li>StkPainPrimacy</li>
-    </value>
-  </Operation>
+
   <!--As HP is anti-greenpeace antipode of Nature Primacy, we should also disallow some non-humane precepts-->
   <Operation Class="PatchOperationAdd">
     <xpath>/Defs/MemeDef[defName="HumanPrimacy"]/requireOne</xpath>

@@ -21,6 +21,7 @@
     <value>
       <li>PainIsVirtue</li>
       <li MayRequire="Ludeon.RimWorld.Biotech">Bloodfeeding</li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Ritualist</li>
       <li MayRequire="Ludeon.RimWorld.Anomaly">Inhuman</li>
     </value>
   </Operation>
@@ -91,42 +92,25 @@
     <!--Locking for corresponding memes-->
     <!--TODO: give bonuses for good humans-->
   <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/PreceptDef[defName="OrganUse_HorribleSellOK" or defName="OrganUse_Acceptable"]/requiredMemes</xpath>
+    <xpath>/Defs/PreceptDef[defName="OrganUse_Acceptable"]/requiredMemes</xpath>
     <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs/PreceptDef[defName="OrganUse_HorribleSellOK" or defName="OrganUse_Acceptable"]</xpath>
+      <xpath>/Defs/PreceptDef[defName="OrganUse_Acceptable"]</xpath>
       <value>
         <requiredMemes />
       </value>
     </nomatch>
   </Operation>
   <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/PreceptDef[defName="OrganUse_HorribleSellOK" or defName="OrganUse_Acceptable"]/requiredMemes</xpath>
+    <xpath>/Defs/PreceptDef[defName="OrganUse_Acceptable"]/requiredMemes</xpath>
     <value>
       <li>Cannibal</li>
       <li>Raider</li>
+      <li>Supremacist</li>
       <li>Collectivist</li>
       <li MayRequire="Ludeon.RimWorld.Biotech">Bloodfeeding</li>
       <li MayRequire="Ludeon.RimWorld.Anomaly">Inhuman</li>
       <li MayRequire="Ludeon.RimWorld.Anomaly">Ritualist</li>
     </value>
-  </Operation>
-  <Operation Class="PatchOperationInsert">
-    <xpath>/Defs/PreceptDef[defName="OrganUse_HorribleSellOK"]/requiredMemes/li[text()="Cannibal"]</xpath>
-    <value>
-      <li>FleshPurity</li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/PreceptDef[defName="OrganUse_HorribleNoSell"]/defaultSelectionWeight</xpath>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs/PreceptDef[defName="OrganUse_HorribleNoSell"]</xpath>
-      <value>
-        <defaultSelectionWeight>1</defaultSelectionWeight>
-      </value>
-    </nomatch>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>/Defs/PreceptDef[defName="OrganUse_HorribleSellOK"]/defaultSelectionWeight</xpath>
   </Operation>
 
   <!--Physical Love-->
@@ -181,40 +165,6 @@
     <xpath>/Defs/PreceptDef[defName="Slavery_Honorable"]/conflictingMemes</xpath>
     <value>
       <li>HumanPrimacy</li>
-    </value>
-  </Operation>
-
-  <!--Spouses-->
-    <!--Adding something to the supremacy memes-->
-  <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/PreceptDef[defName="SpouseCount_Male_Unlimited"]/requiredMemes</xpath>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs/PreceptDef[defName="SpouseCount_Male_Unlimited"]</xpath>
-      <value>
-        <requiredMemes />
-      </value>
-    </nomatch>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/PreceptDef[defName="SpouseCount_Male_Unlimited"]/requiredMemes</xpath>
-    <value>
-      <li>MaleSupremacy</li>
-    </value>
-  </Operation>
-
-  <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/PreceptDef[defName="SpouseCount_Female_Unlimited"]/requiredMemes</xpath>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs/PreceptDef[defName="SpouseCount_Female_Unlimited"]</xpath>
-      <value>
-        <requiredMemes />
-      </value>
-    </nomatch>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/PreceptDef[defName="SpouseCount_Female_Unlimited"]/requiredMemes</xpath>
-    <value>
-      <li>FemaleSupremacy</li>
     </value>
   </Operation>
 
