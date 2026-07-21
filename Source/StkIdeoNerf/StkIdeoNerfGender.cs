@@ -13,12 +13,12 @@ public static class Patch_ExpectationsUtility_CurrentExpectationFor
 		if (__result == null || !ModsConfig.IdeologyActive)
 			return;
 
-		var ideol = p?.Ideo;
-		if (ideol?.memes == null)
+		var ideo = p.Ideo;
+		if (ideo?.memes == null)
 			return;
 
-		bool isFemaleSupremacy = ideol.HasMeme(MemeDefOf.FemaleSupremacy);
-		bool isMaleSupremacy = ideol.HasMeme(MemeDefOf.MaleSupremacy);
+		bool isFemaleSupremacy = ideo.HasMeme(MemeDefOf.FemaleSupremacy);
+		bool isMaleSupremacy = ideo.HasMeme(MemeDefOf.MaleSupremacy);
 		if (!isFemaleSupremacy && !isMaleSupremacy)
 			return;
 
@@ -27,11 +27,13 @@ public static class Patch_ExpectationsUtility_CurrentExpectationFor
 			(isMaleSupremacy && p.gender == Gender.Female);
 		if (!isOppressed)
 			return;
-
-		int newOrder = Math.Max(0, __result.order - 1);
 		
-		var lowered = ExpectationsUtility.ExpectationForOrder(newOrder, forRole: true);
-		if (lowered != null)
-			__result = lowered;
+		var lowered = ExpectationsUtility.ExpectationForOrder(
+			Math.Max(0, __result.order - 1),
+			forRole: true
+		);
+
+		__result = lowered;
 	}
+
 }

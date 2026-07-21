@@ -46,9 +46,18 @@
     <!--Human Primacy nerf-->
     <!--TODO: give bonuses for anti-executioneers-->
   <Operation Class="PatchOperationConditional">
-    <xpath>/Defs/PreceptDef[defName="Execution_DontCare" or defName="Execution_Required"]/conflictingMemes</xpath>
+    <xpath>/Defs/PreceptDef[defName="Execution_DontCare"]/conflictingMemes</xpath>
     <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs/PreceptDef[defName="Execution_DontCare" or defName="Execution_Required"]</xpath>
+      <xpath>/Defs/PreceptDef[defName="Execution_DontCare"]</xpath>
+      <value>
+        <conflictingMemes />
+      </value>
+    </nomatch>
+  </Operation>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/PreceptDef[defName="Execution_Required"]/conflictingMemes</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/PreceptDef[defName="Execution_Required"]</xpath>
       <value>
         <conflictingMemes />
       </value>
@@ -68,7 +77,7 @@
   </Operation>
 
   <!--Insect Meat-->
-    <!--Locking for tunneler, like original fungus-->
+    <!--Locking for tunneler, instead of original fungus-->
   <Operation Class="PatchOperationConditional">
     <xpath>/Defs/PreceptDef[defName="InsectMeatEating_Loved"]/requiredMemes</xpath>
     <nomatch Class="PatchOperationAdd">
@@ -117,7 +126,7 @@
     <!--TODO: Its fucked-->
 
   <!--Research-->
-    <!--Locking fastest speed behind Transhumanist, to nerf it somewhat-->
+    <!--Locking fastest speed behind Transhumanist, to restrict the best choice-->
     <!--Ritualist meme gives huge debuff for no reason-->
     <!--TODO: Its basically a difficulty slider, which is BORING-->
   <Operation Class="PatchOperationConditional">
@@ -152,6 +161,7 @@
 
   <!--Slavery-->
     <!--Somewhat balanced, human primacy nerf-->
+    <!--I would also remove acceptable from HP, but there could be some wierd meme combinations requiring a slavery-->
   <Operation Class="PatchOperationConditional">
     <xpath>/Defs/PreceptDef[defName="Slavery_Honorable"]/conflictingMemes</xpath>
     <nomatch Class="PatchOperationAdd">

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <!--I think medical and production specialists are way to hard to get-->
-  <!--As medic and production are way too OP we should add aditional slot for specialist, but it requires harmony patch-->
   <Operation Class="PatchOperationAdd">
     <xpath>/Defs/PreceptDef[defName="IdeoRole_MedicalSpecialist"]/requiredMemes</xpath>
     <value>
@@ -16,7 +15,7 @@
   </Operation>
 
 
-  <!--Human Primacy with that change is way to OP, Transhuman at least have a lot of downsides-->
+  <!--Human Primacy (HP) with that change is way to OP, Transhuman at least have a lot of downsides-->
   <!--Disallow HP with some other memes-->
   <Operation Class="PatchOperationConditional">
     <xpath>/Defs/MemeDef[defName="Cannibal"]/exclusionTags</xpath>
@@ -131,7 +130,7 @@
   </Operation>
 
 
-  <!--Changing impact to really show gameplay effects, and some grouping-->
+  <!--Changing impact to really show gameplay effects, and some grouping (very subjective)-->
   <Operation Class="PatchOperationReplace">
     <xpath>/Defs/MemeDef[defName="Transhumanist" or defName="FleshPurity"]/impact</xpath>
     <value>
