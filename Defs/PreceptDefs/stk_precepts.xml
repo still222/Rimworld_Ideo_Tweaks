@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Fungus: don't care -->
+  <PreceptDef>
+    <defName>Stk_FungusEating_DontCare</defName>
+    <issue>FungusEating</issue>
+    <label>don't care</label>
+    <description>Fungus is as good as any other food.</description>
+    <impact>Low</impact>
+    <displayOrderInIssue>5</displayOrderInIssue>
+  </PreceptDef>
+
+</Defs>
